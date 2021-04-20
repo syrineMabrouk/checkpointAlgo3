@@ -1,0 +1,35 @@
+FUNCTION dot_product( vecteur1 : ARRAY_OF FLOAT [3], vecteur2 : ARRAY_OF FLOAT [3]) : FLOAT
+VAR
+    prodscalaire:= FLOAT:0 ; 
+   
+BEGIN
+    FOR i FROM 0 TO length.vecteur1-1 STEP 1  DO
+        FOR j FROM i TO length.vecteur2-1 STEP 1 DO
+            prodscalaire:=prodscalaire+vecteur1[i]*vecteur2[j];
+        END_FOR
+    END_FOR
+    RETURN prodscalaire ;
+END
+END
+//appel de la fonction 
+ALGORITHM orthogonal
+VAR 
+    i: INTEGER :0;
+    n: INTEGER;
+    prduit_scalaire: FLOAT:=0 ;
+BEGIN
+ read(n);
+    REPEAT
+    write ("saisir 1ere vecteur ");
+    read(vecteur1);
+    write ("saisir 2eme vecteur");
+    read (vecteur2);
+    prduit_scalaire:=dot_product(v1,v2);
+    IF (prduit_scalaire=0) THEN
+        write ("vecteur 1 et vecteur 2 sont orthogonaux");
+    ELSE
+        write ("vecteur 1 et vecteur 2 ne sont pas orthogonaux");
+    END_IF
+    i:= i+1;
+    UNTIL (i= n);
+END

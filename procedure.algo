@@ -1,0 +1,38 @@
+PROCEDURE dot_product (VAR vecteur1 : ARRAY_OF FLOAT [3] , VAR vecteur2 : ARRAY_OF FLOAT [3])
+VAR
+    prodscalaire:= FLOAT:=0; 
+
+BEGIN
+        FOR i FROM 0 TO length.vecteur1-1 STEP 1  DO
+            FOR j FROM i TO length.vecteur2-1 STEP 1 DO
+                prodscalaire:=prodscalaire+vecteur1[i]*vecteur2[j]
+                
+            END_FOR
+        END_FOR
+        IF (prodscalaire := 0) THEN
+            write("vecteur 1 et vecteur 2 sont Orthogonaux");
+        
+        ELSE
+            write ("vecteur 1 et vecteur2 sont  non Orthogoanaux");
+        END_IF
+    
+END
+//appel de la procedure 
+ALGORITHM orthogonal
+VAR 
+    i:INTEGER:=0;
+  
+   n :INTEGER;
+BEGIN
+
+read(n);
+    REPEAT
+    
+    write ("entrez prémier vecteur ");
+    read(v1);
+    write ("entrez la deuxiéme vecteur ");
+    read (v2);
+    dot_product (v1,v2);
+    i:= i+1;
+    UNTIL (i = n);
+END
